@@ -1,4 +1,4 @@
-<Controls:MetroWindow x:Class="Framework.TemplateClient.ShellView"
+<Controls:MetroWindow x:Class="Framework.TemplateClient.Views.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
@@ -14,5 +14,6 @@
                    HorizontalAlignment="Center"
                    FontSize="20" />
     </Grid>
+
 
 </Controls:MetroWindow>
