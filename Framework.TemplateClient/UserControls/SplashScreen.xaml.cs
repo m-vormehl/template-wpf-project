@@ -1,7 +1,7 @@
 ﻿using SplashScreen;
 using System.Windows.Controls;
 
-namespace Framework.TemplateClient.Resources.Graphics
+namespace Framework.TemplateClient.UserControls
 {
     /// <summary>
     /// more info on https://github.com/tom-englert/SplashScreen.Fody

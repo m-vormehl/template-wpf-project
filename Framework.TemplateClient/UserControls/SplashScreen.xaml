@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Framework.TemplateClient.Resources.Graphics.SplashScreen"
+﻿<UserControl x:Class="Framework.TemplateClient.UserControls.SplashScreen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
