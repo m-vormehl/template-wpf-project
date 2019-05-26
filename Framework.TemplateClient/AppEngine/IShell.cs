@@ -1,3 +1,3 @@
 namespace Framework.TemplateClient {
-    public interface IViewModel {}
+    public interface IShell {}
 }
