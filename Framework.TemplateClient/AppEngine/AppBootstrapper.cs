@@ -2,6 +2,7 @@ namespace Framework.TemplateClient {
     using System;
     using System.Collections.Generic;
     using Caliburn.Micro;
+    using Framework.TemplateClient.ViewModels;
 
     public class AppBootstrapper : BootstrapperBase {
         SimpleContainer container;
@@ -15,7 +16,7 @@ namespace Framework.TemplateClient {
 
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
-            container.PerRequest<IScreen, ShellViewModel>();
+            container.Singleton<ShellViewModel>();
         }
 
         protected override object GetInstance(Type service, string key) {

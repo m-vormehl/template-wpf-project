@@ -2,7 +2,7 @@ using Caliburn.Micro;
 using Framework.TemplateClient.Models.Events;
 using System.ComponentModel.Composition;
 
-namespace Framework.TemplateClient
+namespace Framework.TemplateClient.ViewModels
 {
     [Export(typeof(LoginViewModel))]
     public class LoginViewModel : Screen

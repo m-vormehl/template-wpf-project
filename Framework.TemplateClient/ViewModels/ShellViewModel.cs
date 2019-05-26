@@ -1,7 +1,7 @@
 using Caliburn.Micro;
 using Framework.TemplateClient.Models.Events;
 
-namespace Framework.TemplateClient
+namespace Framework.TemplateClient.ViewModels
 {
     public class ShellViewModel : Conductor<IScreen>.Collection.OneActive, 
                                     IHandle<LoginAttemptEvent>
