@@ -76,6 +76,7 @@
       <HintPath>..\packages\SplashScreen.Fody.1.0.0\lib\net40-client\SplashScreen.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -102,9 +103,10 @@
     </ApplicationDefinition>
     <Compile Include="AppEngine\AppBootstrapper.cs" />
     <Compile Include="AppEngine\IShell.cs" />
-    <Compile Include="UserControls\DashBoardChart.xaml.cs">
+    <Compile Include="Models\Events\LoginAttemptEvent.cs" />
+    <None Include="UserControls\DashBoardChart.xaml.cs">
       <DependentUpon>DashBoardChart.xaml</DependentUpon>
-    </Compile>
+    </None>
     <Compile Include="UserControls\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
@@ -121,10 +123,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\DashBoardChart.xaml">
+    <None Include="UserControls\DashBoardChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </None>
     <Page Include="UserControls\SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Framework.TemplateClient.UserControls
+namespace Framework.TemplateClient.Views
 {
     /// <summary>
-    /// Interaction logic for DashBoeardChart.xaml
+    /// Interaction logic for HomeView.xaml
     /// </summary>
-    public partial class DashBoardChart : UserControl
+    public partial class HomeView : UserControl
     {
-        public DashBoardChart()
+        public HomeView()
         {
             InitializeComponent();
         }

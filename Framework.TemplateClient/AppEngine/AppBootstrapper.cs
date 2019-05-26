@@ -15,7 +15,7 @@ namespace Framework.TemplateClient {
 
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
-            container.PerRequest<IShell, LoginViewModel>();
+            container.PerRequest<IScreen, ShellViewModel>();
         }
 
         protected override object GetInstance(Type service, string key) {
@@ -31,7 +31,7 @@ namespace Framework.TemplateClient {
         }
 
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e) {
-            DisplayRootViewFor<IShell>();
+            DisplayRootViewFor<ShellViewModel>();
         }
     }
 }
