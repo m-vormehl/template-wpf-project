@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Framework.TemplateClient.Views.LoginView"
+﻿<Controls:MetroWindow  x:Class="Framework.TemplateClient.Views.LoginView"
              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,7 +7,20 @@
              xmlns:local="clr-namespace:Framework.TemplateClient.Views"
              mc:Ignorable="d" 
             Width="380" Height="500"
-            FontFamily="Segoe UI Emoji">
+            FontFamily="Segoe UI Emoji"
+            ShowTitleBar="False"
+            WindowStartupLocation="CenterScreen"
+            WindowStyle="None" SaveWindowPosition="True" UseNoneWindowStyle="True" TryToBeFlickerFree="True"
+            >
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:01" Storyboard.TargetProperty="Opacity" From="0" To="1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Rectangle Height="500"
                    VerticalAlignment="Top">
@@ -45,4 +58,4 @@
         </Button>
         <Image Width="100" Height="100" VerticalAlignment="Top" Margin="30"/>
     </Grid>
-</UserControl>
+</Controls:MetroWindow>

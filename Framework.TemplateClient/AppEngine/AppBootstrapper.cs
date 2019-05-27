@@ -16,6 +16,7 @@ namespace Framework.TemplateClient {
 
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
+            container.Singleton<LoginViewModel>();
             container.Singleton<ShellViewModel>();
         }
 

@@ -6,12 +6,20 @@ namespace Framework.TemplateClient.ViewModels
     public class ShellViewModel : Conductor<IScreen>.Collection.OneActive, 
                                     IHandle<LoginAttemptEvent>
     {
-        private IEventAggregator _eventAggregator;
-        public ShellViewModel(IEventAggregator eventAggregator)
+        private readonly IEventAggregator _eventAggregator;
+        private readonly IWindowManager _windowManager;
+        private readonly LoginViewModel _loginVM;
+
+        public ShellViewModel(IEventAggregator eventAggregator, IWindowManager windowManager, LoginViewModel loginVM)
         {
             _eventAggregator = eventAggregator;
+            _windowManager = windowManager;
+            _loginVM = loginVM;
+
             _eventAggregator.Subscribe(this);
         }
+
+        public void PromptForLogin() => _windowManager.ShowDialog(_loginVM);
 
         public void Handle(LoginAttemptEvent message)
         {
@@ -19,6 +27,13 @@ namespace Framework.TemplateClient.ViewModels
             {
                 // Login is successfull, do next steps.
             }
+        }
+
+        protected override void OnActivate()
+        {
+            
+            base.OnActivate();
+            PromptForLogin();
         }
 
         protected override void OnInitialize()

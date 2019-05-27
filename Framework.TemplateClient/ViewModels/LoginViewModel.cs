@@ -22,9 +22,9 @@ namespace Framework.TemplateClient.ViewModels
                 {
                     UserName = "michal",
                     IsLoginSuccessful = check
-            });
-            TryClose();
+                });
+                TryClose();
+            }
         }
-    }
 }
 }
