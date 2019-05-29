@@ -1,7 +1,8 @@
 using Caliburn.Micro;
-using Framework.WpfClient.Models.Events;
+using UI.WpfClient.Interfaces;
+using UI.WpfClient.Models.Events;
 
-namespace Framework.WpfClient.ViewModels
+namespace UI.WpfClient.Modules.Shell
 {
     public class ShellViewModel : Conductor<IScreen>.Collection.OneActive, 
                                     IHandle<LoginAttemptEvent>,

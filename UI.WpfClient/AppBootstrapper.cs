@@ -1,8 +1,10 @@
-namespace Framework.WpfClient {
+namespace UI.WpfClient {
     using System;
     using System.Collections.Generic;
     using Caliburn.Micro;
-    using Framework.WpfClient.ViewModels;
+    using UI.WpfClient.Interfaces;
+    using UI.WpfClient.Modules.Login;
+    using UI.WpfClient.Modules.Shell;
 
     public class AppBootstrapper : BootstrapperBase {
         SimpleContainer container;

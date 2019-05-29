@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Framework.WpfClient.UserControls
+namespace UI.WpfClient.UserControls
 {
     /// <summary>
     /// Interaction logic for DashBoeardChart.xaml

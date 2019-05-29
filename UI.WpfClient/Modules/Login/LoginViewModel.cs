@@ -1,8 +1,8 @@
 using Caliburn.Micro;
-using Framework.WpfClient.Models.Events;
-using System.ComponentModel.Composition;
+using UI.WpfClient.Models.Events;
+using UI.WpfClient.Interfaces;
 
-namespace Framework.WpfClient.ViewModels
+namespace UI.WpfClient.Modules.Login
 {
     public class LoginViewModel : Screen, ILogin
     {
@@ -22,7 +22,6 @@ namespace Framework.WpfClient.ViewModels
                     UserName = "michal",
                     IsLoginSuccessful = check
                 });
-                //TryClose();
             }
         }
     }

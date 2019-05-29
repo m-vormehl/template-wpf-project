@@ -1,4 +1,4 @@
-﻿namespace Framework.WpfClient.Models.Events
+﻿namespace UI.WpfClient.Models.Events
 {
     public class LoginAttemptEvent
     {

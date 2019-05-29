@@ -1,6 +1,6 @@
 ﻿using Caliburn.Micro;
 
-namespace Framework.WpfClient
+namespace UI.WpfClient.Interfaces
 {
     public interface ILogin : IScreen
     {

@@ -1,4 +1,4 @@
-<Controls:MetroWindow x:Class="Framework.WpfClient.Views.ShellView"
+<Controls:MetroWindow x:Class="UI.WpfClient.Modules.Shell.ShellView"
         xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
