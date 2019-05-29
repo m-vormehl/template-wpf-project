@@ -4,8 +4,7 @@ using System.ComponentModel.Composition;
 
 namespace Framework.TemplateClient.ViewModels
 {
-    [Export(typeof(LoginViewModel))]
-    public class LoginViewModel : Screen
+    public class LoginViewModel : Screen, ILogin
     {
         private IEventAggregator _eventAggregator;
         public LoginViewModel(IEventAggregator eventAggregator)
@@ -23,8 +22,8 @@ namespace Framework.TemplateClient.ViewModels
                     UserName = "michal",
                     IsLoginSuccessful = check
                 });
-                TryClose();
+                //TryClose();
             }
         }
-}
+    }
 }

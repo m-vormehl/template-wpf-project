@@ -4,22 +4,21 @@ using Framework.TemplateClient.Models.Events;
 namespace Framework.TemplateClient.ViewModels
 {
     public class ShellViewModel : Conductor<IScreen>.Collection.OneActive, 
-                                    IHandle<LoginAttemptEvent>
+                                    IHandle<LoginAttemptEvent>,
+                                    IShell
     {
         private readonly IEventAggregator _eventAggregator;
-        private readonly IWindowManager _windowManager;
-        private readonly LoginViewModel _loginVM;
+        //private readonly ILogin _loginVM;
 
-        public ShellViewModel(IEventAggregator eventAggregator, IWindowManager windowManager, LoginViewModel loginVM)
+        public ShellViewModel(IEventAggregator eventAggregator, ILogin loginVM)
         {
             _eventAggregator = eventAggregator;
-            _windowManager = windowManager;
-            _loginVM = loginVM;
+            //_loginVM = loginVM;
 
             _eventAggregator.Subscribe(this);
-        }
 
-        public void PromptForLogin() => _windowManager.ShowDialog(_loginVM);
+            ActiveItem = loginVM;
+        }
 
         public void Handle(LoginAttemptEvent message)
         {
@@ -27,18 +26,6 @@ namespace Framework.TemplateClient.ViewModels
             {
                 // Login is successfull, do next steps.
             }
-        }
-
-        protected override void OnActivate()
-        {
-            
-            base.OnActivate();
-            PromptForLogin();
-        }
-
-        protected override void OnInitialize()
-        {
-            base.OnInitialize();
         }
     }
 }

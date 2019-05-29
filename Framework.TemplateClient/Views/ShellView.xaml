@@ -18,11 +18,8 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <Grid Background="White">
-        <TextBlock Text="Hello Caliburn Micro!"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   FontSize="20" />
+    <Grid >
+        <ContentControl x:Name="ActiveItem" />
     </Grid>
 
 

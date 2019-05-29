@@ -16,8 +16,12 @@ namespace Framework.TemplateClient {
 
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
-            container.Singleton<LoginViewModel>();
-            container.Singleton<ShellViewModel>();
+            container.Singleton<IShell,ShellViewModel>();
+            container.Singleton<ILogin,LoginViewModel>();
+        }
+        protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
+        {
+            DisplayRootViewFor<IShell>();
         }
 
         protected override object GetInstance(Type service, string key) {
@@ -30,10 +34,6 @@ namespace Framework.TemplateClient {
 
         protected override void BuildUp(object instance) {
             container.BuildUp(instance);
-        }
-
-        protected override void OnStartup(object sender, System.Windows.StartupEventArgs e) {
-            DisplayRootViewFor<ShellViewModel>();
         }
     }
 }
