@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core3.WpfClient", "Core3.WpfClient\Core3.WpfClient.csproj", "{80927D27-A1F5-441A-B77A-964210DA46A3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.WpfClient", "Framework.WpfClient\Framework.WpfClient.csproj", "{19555448-2372-46D5-AC1C-E263718E4AC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.WpfClient", "UI.WpfClient\UI.WpfClient.csproj", "{19555448-2372-46D5-AC1C-E263718E4AC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
