@@ -6,5 +6,10 @@ namespace UI.WpfClient.Modules.Home{
         public HomeView(){
             InitializeComponent();
         }
+
+        private void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
+        {
+            HamburgerMenuControl.Content = e.InvokedItem;
+        }
     }
 }

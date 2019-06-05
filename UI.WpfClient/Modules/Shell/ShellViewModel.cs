@@ -1,6 +1,7 @@
 using Caliburn.Micro;
 using UI.WpfClient.Interfaces;
 using UI.WpfClient.Models.Events;
+using UI.WpfClient.Modules.Home;
 
 namespace UI.WpfClient.Modules.Shell
 {
@@ -9,13 +10,12 @@ namespace UI.WpfClient.Modules.Shell
                                     IShell
     {
         private readonly IEventAggregator _eventAggregator;
+
         //private readonly ILogin _loginVM;
 
-        public ShellViewModel(IEventAggregator eventAggregator, ILogin loginVM)
+        public ShellViewModel(IEventAggregator eventAggregator,ILogin loginVM)
         {
             _eventAggregator = eventAggregator;
-            //_loginVM = loginVM;
-
             _eventAggregator.Subscribe(this);
 
             ActiveItem = loginVM;
@@ -26,6 +26,9 @@ namespace UI.WpfClient.Modules.Shell
             if (message.IsLoginSuccessful)
             {
                 // Login is successfull, do next steps.
+                var homeViewModel = new HomeViewModel();
+                IoC.BuildUp(homeViewModel);
+                ActiveItem = homeViewModel;
             }
         }
     }

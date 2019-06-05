@@ -1,6 +1,6 @@
 using Caliburn.Micro;
-using UI.WpfClient.Models.Events;
 using UI.WpfClient.Interfaces;
+using UI.WpfClient.Models.Events;
 
 namespace UI.WpfClient.Modules.Login
 {
@@ -22,7 +22,13 @@ namespace UI.WpfClient.Modules.Login
                     UserName = "michal",
                     IsLoginSuccessful = check
                 });
+                TryClose();
             }
+        }
+
+        ~LoginViewModel()
+        {
+
         }
     }
 }
