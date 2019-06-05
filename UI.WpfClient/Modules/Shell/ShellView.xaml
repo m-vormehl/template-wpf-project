@@ -5,9 +5,58 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
 
         Title="{StaticResource ApplicationTitle}"
+        Dialog:DialogParticipation.Register="{Binding}"
         WindowStartupLocation="CenterScreen"
         ShowInTaskbar="True"
         ShowIconOnTitleBar="True">
+    <Controls:MetroWindow.WindowButtonCommands>
+        <Controls:WindowButtonCommands Style="{DynamicResource MahApps.Metro.Styles.WindowButtonCommands.Win10}" />
+    </Controls:MetroWindow.WindowButtonCommands>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands ShowLastSeparator="False">
+            <Button Click="LaunchFlyoutDemo"
+                    Content="Flyouts"
+                    ToolTip="Flyouts demo window" />
+            <Button Click="LaunchIcons"
+                    Content="IconPacks"
+                    ToolTip="All MahApp icons" />
+            <Button Click="LaunchVisualStudioDemo"
+                    Content="VS"
+                    ToolTip="Visual Studio style demo" />
+            <Button Click="LauchCleanDemo"
+                    Content="Clean"
+                    ToolTip="Clean window style demo" />
+            <Button Click="InteropDemo"
+                    Content="Interop"
+                    ToolTip="The interop demo" />
+            <Button Click="LaunchNavigationDemo"
+                    Content="Navigation"
+                    ToolTip="Window navigation demo" />
+            <ToggleButton Content="Confirm quit"
+                          IsChecked="{Binding QuitConfirmationEnabled}"
+                          ToolTip="Enable quit confirmation dialog on exit" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout x:Name="DefaultFlyout" />
+            <controls:Flyout x:Name="LeftFlyout"
+                             Width="500"
+                             Header="Flyout"
+                             Position="Left" />
+            <controls:Flyout x:Name="RightFlyout"
+                             Width="500"
+                             Header="Flyout"
+                             Position="Right" />
+            <controls:Flyout x:Name="RightFlyout2"
+                             Width="500"
+                             Header="Flyout"
+                             Position="Right" />
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
