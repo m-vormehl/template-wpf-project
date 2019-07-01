@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="400"
+             d:DesignHeight="800" d:DesignWidth="600"
              Background="#E9E9E9">
     <Grid Margin="15" MaxHeight="600">
         <Grid.Effect>

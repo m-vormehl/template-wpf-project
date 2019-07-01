@@ -3,12 +3,14 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesignConverters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
 
         Title="{StaticResource ApplicationTitle}"
         WindowStartupLocation="CenterScreen"
         ShowInTaskbar="True"
         ShowIconOnTitleBar="True">
-    <Window.Triggers>
+    <Controls:MetroWindow.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
                 <Storyboard>
@@ -16,11 +18,137 @@
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>
-    </Window.Triggers>
+    </Controls:MetroWindow.Triggers>
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.RadioButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <materialDesignConverters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
+
+            <Style TargetType="materialDesign:PackIcon">
+                <Setter Property="Height" Value="26"/>
+                <Setter Property="Width" Value="26"/>
+            </Style>
+            <Style TargetType="materialDesign:ColorZone">
+                <Setter Property="Padding" Value="20,5"/>
+                <Setter Property="Mode" Value="Accent"/>
+                <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth2"/>
+            </Style>
+
+            <Style TargetType="materialDesign:PopupBox" BasedOn="{StaticResource MaterialDesignToolPopupBox}">
+                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+                <Setter Property="TextBlock.FontWeight" Value="Medium"/>
+                <Setter Property="TextBlock.FontSize" Value="14"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="16 4 16 4"/>
+                <Setter Property="Margin" Value="10,3"/>
+                <Setter Property="Height" Value="32" />
+                <Setter Property="StaysOpen" Value="True" />
+                <Setter Property="PlacementMode" Value="BottomAndAlignRightEdges" />
+            </Style>
+        </ResourceDictionary>
+    </Controls:MetroWindow.Resources>
 
     <Grid >
-        <ContentControl x:Name="ActiveItem" />
+        <!--PROGRESS INDICATORS-->
+        <ProgressBar Controls:VisibilityHelper.IsVisible="{Binding IsAppBusy}"
+                     IsIndeterminate="True" 
+                     VerticalAlignment="Top" Panel.ZIndex="1"/>
+        <materialDesign:TransitioningContent 
+            OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplier 0:0:5}"
+            HorizontalAlignment="Center"
+            Panel.ZIndex="1">
+            <materialDesign:TransitioningContent.OpeningEffects>
+                <materialDesign:TransitionEffect Kind="FadeIn" />
+                <materialDesign:TransitionEffect Kind="SlideInFromLeft" />
+            </materialDesign:TransitioningContent.OpeningEffects>
+            <TextBlock Text="{Binding ProgressMessage}" FontWeight="Heavy" Background="Transparent"/>
+        </materialDesign:TransitioningContent>
+
+        <DockPanel>
+            <!--high level application bar-->
+            <materialDesign:ColorZone DockPanel.Dock="Top"
+                                      Controls:VisibilityHelper.IsVisible="{Binding IsAppBarVisible}">
+                <DockPanel>
+                    <!--HOME BUTTON-->
+                    <Button x:Name="DashboardClick"
+                        ToolTip="Home Page"  Style="{StaticResource MaterialDesignRaisedDarkButton}" DockPanel.Dock="Left" Margin="0,3,10,3">
+                        <StackPanel Orientation="Horizontal" Height="auto">
+                            <materialDesign:PackIcon Kind="Home"/>
+                            <TextBlock Text="Dashboard" Margin="10,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <!--Other BUTTON-->
+                    <materialDesign:PopupBox DockPanel.Dock="Left" ToolTip="Administration Options">
+                        <materialDesign:PopupBox.ToggleContent>
+                            <StackPanel Orientation="Horizontal" Height="auto">
+                                <materialDesign:PackIcon Kind="DirectionsRun"/>
+                                <TextBlock Text="Do your job" Margin="10,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox.ToggleContent>
+                        <StackPanel>
+                            <Button Content="Users Control" />
+                            <Button Content="Upload report" />
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+
+                    <!--Another BUTTON-->
+                    <materialDesign:PopupBox DockPanel.Dock="Left" ToolTip="Administration Options">
+                        <materialDesign:PopupBox.ToggleContent>
+                            <StackPanel Orientation="Horizontal" Height="auto">
+                                <materialDesign:PackIcon Kind="Radiator"/>
+                                <TextBlock Text="Important Stuff" Margin="10,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox.ToggleContent>
+                        <StackPanel>
+                            <Button Content="Users Control" />
+                            <Button Content="Upload report" />
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+
+                    <!--SETTINGS BUTTON-->
+                    <materialDesign:PopupBox DockPanel.Dock="Right"
+                                         PlacementMode="BottomAndAlignRightEdges" 
+                                         ToolTip="Administration Options"
+                                         StaysOpen="True">
+                        <materialDesign:PopupBox.ToggleContent>
+                            <StackPanel Orientation="Horizontal" Height="auto">
+                                <TextBlock Text="Management" Margin="10,0" VerticalAlignment="Center"/>
+                                <materialDesign:PackIcon Kind="SettingsOutline"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox.ToggleContent>
+                        <StackPanel>
+                            <Button Content="Users Control" />
+                            <Button Content="Upload report" />
+                            <Button Content="Do important stuff" />
+                            <Separator/>
+                            <Button Content="Goodbye" />
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                    <!--(FAKE) BAR TITLE,  keeps dockpanel in place-->
+                    <TextBlock HorizontalAlignment="Left" 
+                           FontSize="22" Margin="10,2"
+                           Text="" />
+                </DockPanel>
+            </materialDesign:ColorZone>
+            <!--BODY of displayed content-->
+            <ContentControl x:Name="ActiveItem"/>
+        </DockPanel>
+
+        <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar"/>
     </Grid>
-
-
 </Controls:MetroWindow>

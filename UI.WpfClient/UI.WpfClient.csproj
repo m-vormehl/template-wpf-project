@@ -105,14 +105,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Interfaces\IProgressBar.cs" />
+    <Compile Include="Interfaces\IAppBar.cs" />
     <Compile Include="Interfaces\ILogin.cs" />
     <Compile Include="Interfaces\IShell.cs" />
+    <Compile Include="Models\AppComponents.cs" />
+    <Compile Include="Models\Events\VisibilityChangedEvent.cs" />
     <Compile Include="Models\Events\LoginAttemptEvent.cs" />
     <None Include="UserControls\DashBoardChart.xaml.cs">
       <DependentUpon>DashBoardChart.xaml</DependentUpon>
-    </None>
-    <None Include="Modules\Home\HomeView - Copy.xaml.cs">
-      <DependentUpon>HomeView - Copy.xaml</DependentUpon>
     </None>
     <Compile Include="Modules\Home\HomeViewModel.cs" />
     <Compile Include="Modules\Home\IDashBoard.cs" />
@@ -128,10 +129,6 @@
     <Compile Include="Modules\Home\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <None Include="Modules\Home\HomeView - Copy.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </None>
     <Page Include="Resources\EffectStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

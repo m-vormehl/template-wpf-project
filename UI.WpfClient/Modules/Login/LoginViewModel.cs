@@ -6,6 +6,7 @@ namespace UI.WpfClient.Modules.Login
 {
     public class LoginViewModel : Screen, ILogin
     {
+        public bool IsBusy { get; set; }
         private IEventAggregator _eventAggregator;
         public LoginViewModel(IEventAggregator eventAggregator)
         {
