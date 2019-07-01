@@ -1,4 +1,5 @@
 using Caliburn.Micro;
+using System.Threading.Tasks;
 using UI.WpfClient.Interfaces;
 using UI.WpfClient.Models.Events;
 
@@ -13,10 +14,12 @@ namespace UI.WpfClient.Modules.Login
             _eventAggregator = eventAggregator;
         }
 
-        public void Login()
+        public async Task Login()
         {
             bool check = true;
-            if (check) //if login is OK, check == true
+            IsBusy = true;
+            await Task.Delay(3500);
+            if (true) //if login is OK, check == true
             {
                 _eventAggregator.PublishOnUIThread(new LoginAttemptEvent()
                 {
@@ -25,6 +28,7 @@ namespace UI.WpfClient.Modules.Login
                 });
                 TryClose();
             }
+            IsBusy = false;
         }
 
         ~LoginViewModel()

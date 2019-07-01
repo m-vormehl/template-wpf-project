@@ -8,7 +8,7 @@
              Background="Red"
              OpacityMask="Red">
     <Grid Width="600" Height="300">
-        <Label Content="Splash screen example" 
+        <Label Content="app loading placeholder" 
                FontSize="40"
                FontWeight="ExtraBold"
                HorizontalAlignment="Center"

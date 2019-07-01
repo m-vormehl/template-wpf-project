@@ -40,7 +40,7 @@ namespace UI.WpfClient.Modules.Shell
 
         public void Handle(VisibilityChangedEvent<IProgressBar> message) => IsAppBusy = message.IsVisible;
 
-        public void Handle(VisibilityChangedEvent<IAppBar> message) => IsAppBarVisible = 
+        public void Handle(VisibilityChangedEvent<IAppBar> message) => IsAppBarVisible = message.IsVisible;
         #endregion
     }
 }

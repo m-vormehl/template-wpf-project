@@ -112,11 +112,11 @@
     <Compile Include="Models\AppComponents.cs" />
     <Compile Include="Models\Events\VisibilityChangedEvent.cs" />
     <Compile Include="Models\Events\LoginAttemptEvent.cs" />
-    <None Include="UserControls\DashBoardChart.xaml.cs">
-      <DependentUpon>DashBoardChart.xaml</DependentUpon>
-    </None>
     <Compile Include="Modules\Home\HomeViewModel.cs" />
     <Compile Include="Modules\Home\IDashBoard.cs" />
+    <Compile Include="UserControls\DashboardChart.xaml.cs">
+      <DependentUpon>DashboardChart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
@@ -137,10 +137,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <None Include="UserControls\DashBoardChart.xaml">
+    <Page Include="UserControls\DashboardChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </None>
+    </Page>
     <Page Include="UserControls\SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

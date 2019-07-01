@@ -83,7 +83,7 @@
                     VerticalAlignment="center"
                     materialDesign:ShadowAssist.ShadowDepth="Depth3"
                     materialDesign:ButtonProgressAssist.Value="-1"
-                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding IsBusy}"
                     materialDesign:ButtonProgressAssist.IsIndeterminate="True">
         </Button>
     </Grid>

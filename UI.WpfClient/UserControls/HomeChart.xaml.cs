@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UI.WpfClient.UserControls
 {
     /// <summary>
-    /// Interaction logic for DashboardChart.xaml
+    /// Interaction logic for HomeChart.xaml
     /// </summary>
-    public partial class DashboardChart : UserControl
+    public partial class HomeChart : UserControl
     {
-        public DashboardChart()
+        public HomeChart()
         {
             InitializeComponent();
         }

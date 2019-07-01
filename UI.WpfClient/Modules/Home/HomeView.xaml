@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uc="clr-namespace:UI.WpfClient.UserControls"
              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -14,10 +15,16 @@
 
     </UserControl.Resources>
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.HorizontalScrollBarVisibilityRequirement}"
-                          VerticalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.VerticalScrollBarVisibilityRequirement}" 
-                          Padding="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.MarginRequirement}" Grid.ColumnSpan="3">
-            <ContentControl Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
-        </ScrollViewer>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3* "/>
+        </Grid.ColumnDefinitions>
+        
+        <!--left side task tiles-->
+        <ListView ItemsSource="{Binding DisplayedTasksList}" />
+        <!--rightside chart, starts etc-->
+        <ContentControl Content="{Binding LeftSideContent}" />
+
+
     </Grid>
 </UserControl>
