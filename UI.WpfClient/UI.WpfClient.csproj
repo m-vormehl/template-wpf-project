@@ -66,6 +66,9 @@
     <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.0.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.MahApps.0.0.12\lib\net45\MaterialDesignThemes.MahApps.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
@@ -114,8 +117,8 @@
     <Compile Include="Models\Events\LoginAttemptEvent.cs" />
     <Compile Include="Modules\Home\HomeViewModel.cs" />
     <Compile Include="Modules\Home\IDashBoard.cs" />
-    <Compile Include="UserControls\DashboardChart.xaml.cs">
-      <DependentUpon>DashboardChart.xaml</DependentUpon>
+    <Compile Include="UserControls\HomeChart.xaml.cs">
+      <DependentUpon>HomeChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
@@ -137,7 +140,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\DashboardChart.xaml">
+    <Page Include="UserControls\HomeChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

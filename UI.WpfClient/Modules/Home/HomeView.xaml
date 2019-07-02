@@ -23,7 +23,7 @@
         <!--left side task tiles-->
         <ListView ItemsSource="{Binding DisplayedTasksList}" />
         <!--rightside chart, starts etc-->
-        <ContentControl Content="{Binding LeftSideContent}" />
+        <ContentControl Content="{Binding RightSideContent}" Grid.Column="1" />
 
 
     </Grid>

@@ -1,6 +1,8 @@
-﻿namespace UI.WpfClient.Modules.Home
+﻿using Caliburn.Micro;
+
+namespace UI.WpfClient.Modules.Home
 {
-    public interface IDashBoard
+    public interface IDashBoard:IScreen
     {
     }
 }

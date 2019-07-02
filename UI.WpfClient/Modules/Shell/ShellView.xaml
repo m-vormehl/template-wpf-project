@@ -5,65 +5,48 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:materialDesignConverters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
-
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
         Title="{StaticResource ApplicationTitle}"
         Dialog:DialogParticipation.Register="{Binding}"
         WindowStartupLocation="CenterScreen"
         ShowInTaskbar="True"
         ShowIconOnTitleBar="True">
-<<<<<<< HEAD
-    <Controls:MetroWindow.Triggers>
-=======
+
     <Controls:MetroWindow.WindowButtonCommands>
         <Controls:WindowButtonCommands Style="{DynamicResource MahApps.Metro.Styles.WindowButtonCommands.Win10}" />
     </Controls:MetroWindow.WindowButtonCommands>
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands ShowLastSeparator="False">
-            <Button Click="LaunchFlyoutDemo"
-                    Content="Flyouts"
-                    ToolTip="Flyouts demo window" />
-            <Button Click="LaunchIcons"
-                    Content="IconPacks"
-                    ToolTip="All MahApp icons" />
-            <Button Click="LaunchVisualStudioDemo"
-                    Content="VS"
-                    ToolTip="Visual Studio style demo" />
-            <Button Click="LauchCleanDemo"
-                    Content="Clean"
-                    ToolTip="Clean window style demo" />
-            <Button Click="InteropDemo"
-                    Content="Interop"
-                    ToolTip="The interop demo" />
-            <Button Click="LaunchNavigationDemo"
-                    Content="Navigation"
-                    ToolTip="Window navigation demo" />
-            <ToggleButton Content="Confirm quit"
-                          IsChecked="{Binding QuitConfirmationEnabled}"
-                          ToolTip="Enable quit confirmation dialog on exit" />
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="DieD8"/>
+                    <TextBlock Text="Throw a dice" Margin="10,0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal" Height="auto">
+                    <materialDesign:PackIcon Kind="ColourLens"/>
+                    <TextBlock Text="Color Theme" Margin="10,0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 
     <Controls:MetroWindow.Flyouts>
-        <controls:FlyoutsControl>
-            <controls:Flyout x:Name="DefaultFlyout" />
-            <controls:Flyout x:Name="LeftFlyout"
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="LeftFlyout"
                              Width="500"
                              Header="Flyout"
                              Position="Left" />
-            <controls:Flyout x:Name="RightFlyout"
+            <Controls:Flyout x:Name="RightFlyout"
                              Width="500"
                              Header="Flyout"
                              Position="Right" />
-            <controls:Flyout x:Name="RightFlyout2"
-                             Width="500"
-                             Header="Flyout"
-                             Position="Right" />
-        </controls:FlyoutsControl>
-    </controls:MetroWindow.Flyouts>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
 
-    <Window.Triggers>
->>>>>>> 500c860ddfe1a0b49e35b14ddc60f3bb0c2f1b61
+    <Controls:MetroWindow.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
                 <Storyboard>
@@ -132,14 +115,17 @@
             <TextBlock Text="{Binding ProgressMessage}" FontWeight="Heavy" Background="Transparent"/>
         </materialDesign:TransitioningContent>
 
-        <DockPanel>
+        <DockPanel LastChildFill="False">
             <!--high level application bar-->
             <materialDesign:ColorZone DockPanel.Dock="Top"
                                       Controls:VisibilityHelper.IsVisible="{Binding IsAppBarVisible}">
                 <DockPanel>
                     <!--HOME BUTTON-->
                     <Button x:Name="DashboardClick"
-                        ToolTip="Home Page"  Style="{StaticResource MaterialDesignRaisedDarkButton}" DockPanel.Dock="Left" Margin="0,3,10,3">
+                        ToolTip="Home Page"  Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                            DockPanel.Dock="Left" 
+                            Panel.ZIndex="10"
+                            Margin="0,3,10,3">
                         <StackPanel Orientation="Horizontal" Height="auto">
                             <materialDesign:PackIcon Kind="Home"/>
                             <TextBlock Text="Dashboard" Margin="10,0" VerticalAlignment="Center"/>
@@ -200,6 +186,8 @@
             </materialDesign:ColorZone>
             <!--BODY of displayed content-->
             <ContentControl x:Name="ActiveItem"/>
+            <!--bottom border-->
+            <Rectangle Height="4" DockPanel.Dock="Bottom" Fill="DarkGray"/>
         </DockPanel>
 
         <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar"/>

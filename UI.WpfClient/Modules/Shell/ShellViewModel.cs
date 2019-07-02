@@ -32,7 +32,8 @@ namespace UI.WpfClient.Modules.Shell
             if (message.IsLoginSuccessful)
             {
                 // Login is successfull, do next steps.
-                var homeViewModel = new HomeViewModel();
+                //var homeViewModel = new HomeViewModel();
+                var homeViewModel = IoC.Get<IDashBoard>();
                 IoC.BuildUp(homeViewModel);
                 ActiveItem = homeViewModel;
             }
