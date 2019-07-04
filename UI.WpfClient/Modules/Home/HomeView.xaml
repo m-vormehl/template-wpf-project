@@ -5,26 +5,58 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:uc="clr-namespace:UI.WpfClient.UserControls"
              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             
+             xmlns:ge="clr-namespace:SourceChord.GridExtra;assembly=GridExtra.Wpf"
              d:DesignHeight="500"
              d:DesignWidth="800"
              mc:Ignorable="d">
     <UserControl.Resources>
-
+        <Style TargetType="Controls:Tile">
+            <Setter Property="Height" Value="120" />
+            <Setter Property="Width" Value="160" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Controls:ControlsHelper.MouseOverBorderBrush" Value="{DynamicResource BlackBrush}" />
+            <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+            <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        </Style>
+        <Style TargetType="materialDesign:PackIcon">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+        </Style>
     </UserControl.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="3* "/>
-        </Grid.ColumnDefinitions>
-        
-        <!--left side task tiles-->
-        <ListView ItemsSource="{Binding DisplayedTasksList}" />
-        <!--rightside chart, starts etc-->
-        <ContentControl Content="{Binding RightSideContent}" Grid.Column="1" />
+    <ScrollViewer>
+        <Grid ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ge:ResponsiveGrid >
+                <!--left side task tiles-->
+                <TextBlock HorizontalAlignment="Left"
+                   Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                   Text="Available tasks:"
+                   Margin="10,5,5,0"
+                   ge:ResponsiveGrid.XS="12" ge:ResponsiveGrid.SM="7"/>
+                <WrapPanel ge:ResponsiveGrid.XS="12" ge:ResponsiveGrid.SM="7"
+                   ge:WrapPanelEx.AdaptiveLayout="True"
+                   Margin="5">
+                    <Controls:Tile  Title="Search by ID"
+                        Content="{materialDesign:PackIcon Kind=Search}"/>
+                    <Controls:Tile  Title="New Cases Queue"
+                        Content="{materialDesign:PackIcon Kind=Queue}"/>
+                    <Controls:Tile Title="Postponed Requests"
+                        Content="{materialDesign:PackIcon Kind=Timelapse}"/>
+                    <Controls:Tile  Title="Completed Requests"
+                        Content="{materialDesign:PackIcon Kind=Coffin}"/>
+                    <Controls:Tile  Title="Reports"
+                        Content="{materialDesign:PackIcon Kind=ChartBar}"/>
+                    <Controls:Tile  Title="Administration"
+                        Content="{materialDesign:PackIcon Kind=GearBox}"/>
+                </WrapPanel>
 
-
-    </Grid>
+                <!--rightside charts and cards-->
+                <StackPanel ge:ResponsiveGrid.XS="12" ge:ResponsiveGrid.SM="5"
+                    Margin="5" MinWidth="200">
+                    <uc:HomeChart />
+                    <uc:StatusCard />
+                </StackPanel>
+            </ge:ResponsiveGrid>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

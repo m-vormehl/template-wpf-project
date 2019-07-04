@@ -8,8 +8,12 @@
         xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
         Title="{StaticResource ApplicationTitle}"
         Dialog:DialogParticipation.Register="{Binding}"
+        MinHeight="400" MinWidth="460"
         WindowStartupLocation="CenterScreen"
         ShowInTaskbar="True"
+        SaveWindowPosition="True"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
         ShowIconOnTitleBar="True">
 
     <Controls:MetroWindow.WindowButtonCommands>
