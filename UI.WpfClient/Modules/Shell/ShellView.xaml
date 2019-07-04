@@ -115,7 +115,7 @@
             <TextBlock Text="{Binding ProgressMessage}" FontWeight="Heavy" Background="Transparent"/>
         </materialDesign:TransitioningContent>
 
-        <DockPanel LastChildFill="False">
+        <DockPanel>
             <!--high level application bar-->
             <materialDesign:ColorZone DockPanel.Dock="Top"
                                       Controls:VisibilityHelper.IsVisible="{Binding IsAppBarVisible}">
@@ -184,10 +184,10 @@
                            Text="" />
                 </DockPanel>
             </materialDesign:ColorZone>
-            <!--BODY of displayed content-->
-            <ContentControl x:Name="ActiveItem"/>
             <!--bottom border-->
             <Rectangle Height="4" DockPanel.Dock="Bottom" Fill="DarkGray"/>
+            <!--BODY of displayed content-->
+            <ContentControl x:Name="ActiveItem"/>
         </DockPanel>
 
         <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar"/>
