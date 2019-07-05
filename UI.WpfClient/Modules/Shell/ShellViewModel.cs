@@ -1,4 +1,5 @@
 using Caliburn.Micro;
+using MaterialDesignThemes.Wpf;
 using UI.WpfClient.Interfaces;
 using UI.WpfClient.Models;
 using UI.WpfClient.Models.Events;
@@ -17,10 +18,14 @@ namespace UI.WpfClient.Modules.Shell
         public bool IsAppBusy { get; set; }
         public bool IsAppBarVisible { get; set; }
         public string ProgressMessage { get; set; }
+        public ISnackbarMessageQueue SnackbarMessageQueue { get; set; }
 
-        public ShellViewModel(IEventAggregator eventAggregator,ILogin loginVM)
+        public ShellViewModel(IEventAggregator eventAggregator,
+                                ISnackbarMessageQueue snackbarMessageQueue,
+                                ILogin loginVM)
         {
             _eventAggregator = eventAggregator;
+            SnackbarMessageQueue = snackbarMessageQueue;
             _eventAggregator.Subscribe(this);
 
             ActiveItem = loginVM;

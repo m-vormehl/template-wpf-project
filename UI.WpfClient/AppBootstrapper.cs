@@ -2,6 +2,7 @@ namespace UI.WpfClient {
     using System;
     using System.Collections.Generic;
     using Caliburn.Micro;
+    using MaterialDesignThemes.Wpf;
     using UI.WpfClient.Interfaces;
     using UI.WpfClient.Modules.Home;
     using UI.WpfClient.Modules.Login;
@@ -22,6 +23,8 @@ namespace UI.WpfClient {
             container.Singleton<IShell,ShellViewModel>();
             container.Singleton<ILogin,LoginViewModel>();
             container.Singleton<IDashBoard,HomeViewModel>();
+            //container.Singleton<ISnackbarMessageQueue>();
+            container.RegisterInstance(typeof(ISnackbarMessageQueue),"Snackbar",new SnackbarMessageQueue(TimeSpan.FromSeconds(4)));
         }
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
         {

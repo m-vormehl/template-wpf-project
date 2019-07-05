@@ -18,14 +18,24 @@
             <Setter Property="Controls:ControlsHelper.MouseOverBorderBrush" Value="{DynamicResource BlackBrush}" />
             <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
             <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+            <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth5" />
         </Style>
         <Style TargetType="materialDesign:PackIcon">
             <Setter Property="Width" Value="50"/>
             <Setter Property="Height" Value="50"/>
         </Style>
+        <LinearGradientBrush
+            x:Key="HeaderBackgroundOpacityMask"
+            StartPoint="0,0"
+            EndPoint="0,1">
+            <GradientStop Color="#00FFFFFF" Offset="0.3"/>
+            <GradientStop Color="#0FFFFFFF" Offset="0.4"/>
+            <GradientStop Color="#FFFFFFFF" Offset="1"/>
+        </LinearGradientBrush>
     </UserControl.Resources>
     <ScrollViewer>
         <Grid ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Image  Source="/Resources/house.jpg"  VerticalAlignment="Bottom" HorizontalAlignment="Stretch" OpacityMask="{StaticResource HeaderBackgroundOpacityMask}"/>
             <ge:ResponsiveGrid >
                 <!--left side task tiles-->
                 <TextBlock HorizontalAlignment="Left"
@@ -36,12 +46,14 @@
                 <WrapPanel ge:ResponsiveGrid.XS="12" ge:ResponsiveGrid.SM="7"
                    ge:WrapPanelEx.AdaptiveLayout="True"
                    Margin="5">
-                    <Controls:Tile  Title="Search by ID"
+                    <Controls:Tile  Title="Search by ID" x:Name="SearchClick"
                         Content="{materialDesign:PackIcon Kind=Search}"/>
                     <Controls:Tile  Title="New Cases Queue"
-                        Content="{materialDesign:PackIcon Kind=Queue}"/>
+                                    Count="5"
+                                    Content="{materialDesign:PackIcon Kind=Queue}"/>
                     <Controls:Tile Title="Postponed Requests"
-                        Content="{materialDesign:PackIcon Kind=Timelapse}"/>
+                                   Count="11"
+                                    Content="{materialDesign:PackIcon Kind=Timelapse}"/>
                     <Controls:Tile  Title="Completed Requests"
                         Content="{materialDesign:PackIcon Kind=Coffin}"/>
                     <Controls:Tile  Title="Reports"
