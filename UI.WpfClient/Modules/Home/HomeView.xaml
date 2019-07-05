@@ -41,11 +41,11 @@
                 <TextBlock HorizontalAlignment="Left"
                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                    Text="Available tasks:"
-                   Margin="10,5,5,0"
+                   Margin="15,8,5,0"
                    ge:ResponsiveGrid.XS="12" ge:ResponsiveGrid.SM="7"/>
                 <WrapPanel ge:ResponsiveGrid.XS="12" ge:ResponsiveGrid.SM="7"
                    ge:WrapPanelEx.AdaptiveLayout="True"
-                   Margin="5">
+                   Margin="12,3">
                     <Controls:Tile  Title="Search by ID" x:Name="SearchClick"
                         Content="{materialDesign:PackIcon Kind=Search}"/>
                     <Controls:Tile  Title="New Cases Queue"

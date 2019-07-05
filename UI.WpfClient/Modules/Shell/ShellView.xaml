@@ -199,6 +199,8 @@
             <ContentControl x:Name="ActiveItem"/>
         </DockPanel>
 
-        <materialDesign:Snackbar MessageQueue="{Binding SnackbarMessageQueue}" x:Name="MainSnackbar"/>
+        <materialDesign:Snackbar MessageQueue="{Binding SnackbarMessageQueue}" 
+                                 x:Name="MainSnackbar" Margin="70,0"
+                                 HorizontalAlignment="Right"/>
     </Grid>
 </Controls:MetroWindow>
