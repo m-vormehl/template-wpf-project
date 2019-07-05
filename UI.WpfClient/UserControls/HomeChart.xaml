@@ -52,11 +52,10 @@
                 </lvc:CartesianChart>
             </Grid>
             <Button Grid.Row="1"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                    Background="{DynamicResource AccentColorBrush3}"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"
-                        Margin="0 0 16 -20">
+                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 16 -20">
                 <materialDesign:PackIcon Kind="RotateRight" Height="22" Width="22" />
             </Button>
             <StackPanel Grid.Row="2" Margin="8,12">

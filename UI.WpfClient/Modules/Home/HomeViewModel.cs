@@ -3,6 +3,7 @@ using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using UI.WpfClient.Interfaces;
 using UI.WpfClient.Models.Events;
@@ -12,6 +13,8 @@ namespace UI.WpfClient.Modules.Home
 {
     public class HomeViewModel : Screen, IDashBoard
     {
+        public DateTime LastUpdateDateTime { get; set; }
+        public TimeSpan LastUpdateAgo { get => LastUpdateDateTime - DateTime.UtcNow; }
         private readonly IEventAggregator _eventAggregator;
         private readonly ISnackbarMessageQueue _snackbarMessageQueue;
 
@@ -20,8 +23,22 @@ namespace UI.WpfClient.Modules.Home
             _eventAggregator = eventAggregator;
             _snackbarMessageQueue = snackbarMessageQueue;
             DisplayName = "Dashboard page";
-        }    
-        
+            LastUpdateDateTime = DateTime.UtcNow;
+            LoopLastUpdatePropertyNotify();
+        }
+
+        private void LoopLastUpdatePropertyNotify()
+        {
+            Task.Run(()=>
+                {
+                    while (this !=null) // lol
+                    {
+                        Thread.Sleep(1000);
+                        NotifyOfPropertyChange(() => LastUpdateAgo);
+                    }
+            });
+        }
+
         public void SearchClick()
         {
             _snackbarMessageQueue.Enqueue("Hey, you have just clicked search tile!",false);

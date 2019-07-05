@@ -15,16 +15,18 @@
             <TextBlock Margin="16,4"
                         Style="{StaticResource MaterialDesignHeadlineTextBlock}"
                        Text="Last Download:"/>
-            <Button Grid.Row="1" HorizontalAlignment="Left" Margin="16,6"
+            <Button Grid.Row="1" HorizontalAlignment="Left" Margin="16,0,16,10"
                     Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}">
                 <materialDesign:PackIcon Kind="Alarm" Height="24" Width="24" />
             </Button>
-            <TextBlock Grid.Row="1"
-                       Margin="16,4"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       Text="15:21 March 19, 2016" />
-
+            <StackPanel Grid.Row="1" Margin="16,8"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="{Binding LastUpdateDateTime, ConverterCulture='en-UK', StringFormat={}{0:HH:mm, dddd dd MMMM yyyy}.}" 
+                           HorizontalAlignment="Right" FontSize="16"/>
+                <TextBlock Text="{Binding LastUpdateAgo, ConverterCulture='en-UK', StringFormat={}{0:m' min 'ss' sec ago.'}}" 
+                           Foreground="DarkGray" HorizontalAlignment="Right"/>
+            </StackPanel>
         </Grid>
     </materialDesign:Card>
 </UserControl>
