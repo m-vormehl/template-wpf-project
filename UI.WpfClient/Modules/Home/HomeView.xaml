@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:uc="clr-namespace:UI.WpfClient.UserControls"
+             xmlns:local="clr-namespace:UI.WpfClient.Modules.Home"
              xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:ge="clr-namespace:SourceChord.GridExtra;assembly=GridExtra.Wpf"
@@ -65,8 +65,9 @@
                 <!--rightside charts and cards-->
                 <StackPanel ge:ResponsiveGrid.XS="12" ge:ResponsiveGrid.SM="5"
                     Margin="5" MinWidth="200">
-                    <uc:HomeChart />
-                    <uc:StatusCard />
+                    <local:StatusChart />
+                    <local:StatusCard />
+                    <local:UsersCard />
                 </StackPanel>
             </ge:ResponsiveGrid>
         </Grid>

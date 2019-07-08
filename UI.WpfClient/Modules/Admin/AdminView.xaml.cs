@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI.WpfClient.UserControls
+namespace UI.WpfClient.Modules.Admin
 {
     /// <summary>
-    /// Interaction logic for HomeChart.xaml
+    /// Interaction logic for AdminView.xaml
     /// </summary>
-    public partial class HomeChart : UserControl
+    public partial class AdminView : UserControl
     {
-        public HomeChart()
+        public AdminView()
         {
             InitializeComponent();
         }

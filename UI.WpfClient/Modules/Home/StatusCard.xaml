@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="UI.WpfClient.Modules.Home.StatusCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <materialDesign:Card Margin="10,5">
+        <Grid   HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="140" MinWidth="100" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Height="48" Width="48" Margin="5">
+                <materialDesign:PackIcon Kind="Alarm" Height="32" Width="32"/>
+            </Button>
+            <StackPanel Grid.Column="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right">
+                <TextBlock Margin="0,4,16,2" FontSize="16" HorizontalAlignment="Right"  Text="Last Download:"/>
+                <Separator Margin="0,0,16,0"/>
+                <TextBlock Text="{Binding LastUpdateDateTime, ConverterCulture='en-UK', StringFormat={}{0:HH:mm, dddd dd MMMM yyyy}}" 
+                           HorizontalAlignment="Right" 
+                           Margin="0,4,16,2"/>
+                <TextBlock Text="{Binding LastUpdateAgo, ConverterCulture='en-UK', StringFormat={}{0:m' min 'ss' sec ago'}}" 
+                           Foreground="DarkGray" HorizontalAlignment="Right"
+                           Margin="0,2,16,4"/>
+            </StackPanel>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

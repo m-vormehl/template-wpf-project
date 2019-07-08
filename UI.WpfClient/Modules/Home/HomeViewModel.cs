@@ -14,6 +14,7 @@ namespace UI.WpfClient.Modules.Home
     public class HomeViewModel : Screen, IDashBoard
     {
         public DateTime LastUpdateDateTime { get; set; }
+        public byte UsersOnline { get; set; }
         public TimeSpan LastUpdateAgo { get => LastUpdateDateTime - DateTime.UtcNow; }
         private readonly IEventAggregator _eventAggregator;
         private readonly ISnackbarMessageQueue _snackbarMessageQueue;
@@ -24,10 +25,11 @@ namespace UI.WpfClient.Modules.Home
             _snackbarMessageQueue = snackbarMessageQueue;
             DisplayName = "Dashboard page";
             LastUpdateDateTime = DateTime.UtcNow;
-            LoopLastUpdatePropertyNotify();
+            CheckLastDownloadTime();
+            CheckUsersOnline();
         }
 
-        private void LoopLastUpdatePropertyNotify()
+        private void CheckLastDownloadTime()
         {
             Task.Run(()=>
                 {
@@ -36,6 +38,19 @@ namespace UI.WpfClient.Modules.Home
                         Thread.Sleep(1000);
                         NotifyOfPropertyChange(() => LastUpdateAgo);
                     }
+            });
+        }
+
+        private void CheckUsersOnline()
+        {
+            Task.Run(() =>
+            {
+                while (this != null) // lol
+                {
+                    Random random = new Random();
+                    UsersOnline = (byte)random.Next(0, 12);
+                    Thread.Sleep(5000);
+                }
             });
         }
 

@@ -110,17 +110,24 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Interfaces\IProgressBar.cs" />
     <Compile Include="Interfaces\IAppBar.cs" />
-    <Compile Include="Interfaces\ILogin.cs" />
-    <Compile Include="Interfaces\IShell.cs" />
+    <Compile Include="Modules\Home\UsersCard.xaml.cs">
+      <DependentUpon>UsersCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Login\ILogin.cs" />
+    <Compile Include="Modules\Shell\IShell.cs" />
     <Compile Include="Models\AppComponents.cs" />
     <Compile Include="Models\Events\VisibilityChangedEvent.cs" />
     <Compile Include="Models\Events\LoginAttemptEvent.cs" />
+    <Compile Include="Modules\Admin\AdminView.xaml.cs">
+      <DependentUpon>AdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Admin\AdminViewModel.cs" />
     <Compile Include="Modules\Home\HomeViewModel.cs" />
     <Compile Include="Modules\Home\IDashBoard.cs" />
-    <Compile Include="UserControls\HomeChart.xaml.cs">
-      <DependentUpon>HomeChart.xaml</DependentUpon>
+    <Compile Include="Modules\Home\StatusChart.xaml.cs">
+      <DependentUpon>StatusChart.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SplashScreen.xaml.cs">
+    <Compile Include="Resources\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Login\LoginViewModel.cs" />
@@ -132,9 +139,17 @@
     <Compile Include="Modules\Home\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StatusCard.xaml.cs">
+    <Compile Include="Modules\Home\StatusCard.xaml.cs">
       <DependentUpon>StatusCard.xaml</DependentUpon>
     </Compile>
+    <Page Include="Modules\Admin\AdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Home\UsersCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\EffectStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,11 +158,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\HomeChart.xaml">
+    <Page Include="Modules\Home\StatusChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\SplashScreen.xaml">
+    <Page Include="Resources\SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,7 +178,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\StatusCard.xaml">
+    <Page Include="Modules\Home\StatusCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
