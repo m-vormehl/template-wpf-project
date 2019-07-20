@@ -2,6 +2,7 @@ using Caliburn.Micro;
 using System.Threading.Tasks;
 using UI.WpfClient.Interfaces;
 using UI.WpfClient.Models.Events;
+using UI.WpfClient.Modules.Home;
 
 namespace UI.WpfClient.Modules.Login
 {
@@ -16,24 +17,19 @@ namespace UI.WpfClient.Modules.Login
 
         public async Task Login()
         {
-            bool check = true;
             IsBusy = true;
             await Task.Delay(3500);
             if (true) //if login is OK, check == true
             {
+                _eventAggregator.PublishOnUIThread(new ChangeScreenEvent { ClosePrevious = true, ViewModel = IoC.Get<IHome>() });
                 _eventAggregator.PublishOnUIThread(new LoginAttemptEvent()
                 {
                     UserName = "michal",
-                    IsLoginSuccessful = check
+                    IsLoginSuccessful = true
                 });
                 TryClose();
             }
             IsBusy = false;
-        }
-
-        ~LoginViewModel()
-        {
-
         }
     }
 }

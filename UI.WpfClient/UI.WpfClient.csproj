@@ -51,6 +51,9 @@
     <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.4.0.0-alpha0290\lib\net462\ControlzEx.dll</HintPath>
     </Reference>
+    <Reference Include="FakeItEasy, Version=5.0.0.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
+      <HintPath>..\packages\FakeItEasy.5.1.1\lib\net45\FakeItEasy.dll</HintPath>
+    </Reference>
     <Reference Include="GridExtra.Wpf, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GridExtra.0.4.0\lib\net45\GridExtra.Wpf.dll</HintPath>
     </Reference>
@@ -110,10 +113,17 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Interfaces\IProgressBar.cs" />
     <Compile Include="Interfaces\IAppBar.cs" />
+    <Compile Include="Models\Events\ChangeScreenEvent.cs" />
+    <Compile Include="Models\SearchCaseRecord.cs" />
     <Compile Include="Modules\Home\UsersCard.xaml.cs">
       <DependentUpon>UsersCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Login\ILogin.cs" />
+    <Compile Include="Modules\Search\ISearch.cs" />
+    <Compile Include="Modules\Search\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Search\SearchViewModel.cs" />
     <Compile Include="Modules\Shell\IShell.cs" />
     <Compile Include="Models\AppComponents.cs" />
     <Compile Include="Models\Events\VisibilityChangedEvent.cs" />
@@ -123,7 +133,7 @@
     </Compile>
     <Compile Include="Modules\Admin\AdminViewModel.cs" />
     <Compile Include="Modules\Home\HomeViewModel.cs" />
-    <Compile Include="Modules\Home\IDashBoard.cs" />
+    <Compile Include="Modules\Home\IHome.cs" />
     <Compile Include="Modules\Home\StatusChart.xaml.cs">
       <DependentUpon>StatusChart.xaml</DependentUpon>
     </Compile>
@@ -147,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Modules\Home\UsersCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Search\SearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

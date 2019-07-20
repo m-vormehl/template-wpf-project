@@ -46,9 +46,10 @@
                 <WrapPanel ge:ResponsiveGrid.XS="12" ge:ResponsiveGrid.SM="7"
                    ge:WrapPanelEx.AdaptiveLayout="True"
                    Margin="12,3">
-                    <Controls:Tile  Title="Search by ID" x:Name="SearchClick"
+                    <Controls:Tile  Title="Search by ID" x:Name="SearchClickCommand"
                         Content="{materialDesign:PackIcon Kind=Search}"/>
-                    <Controls:Tile  Title="New Cases Queue"
+                    <Controls:Tile  x:Name="OpenNewCasesCommand"
+                                    Title="New Cases Queue"
                                     Count="5"
                                     Content="{materialDesign:PackIcon Kind=Queue}"/>
                     <Controls:Tile Title="Postponed Requests"

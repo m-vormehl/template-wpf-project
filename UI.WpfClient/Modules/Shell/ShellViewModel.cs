@@ -4,13 +4,14 @@ using UI.WpfClient.Interfaces;
 using UI.WpfClient.Models;
 using UI.WpfClient.Models.Events;
 using UI.WpfClient.Modules.Home;
+using UI.WpfClient.Modules.Search;
 
 namespace UI.WpfClient.Modules.Shell
 {
     public class ShellViewModel : Conductor<IScreen>.Collection.OneActive, 
-                                    IHandle<LoginAttemptEvent>,
                                     IHandle<VisibilityChangedEvent<IProgressBar>>,
                                     IHandle<VisibilityChangedEvent<IAppBar>>,
+                                    IHandle<ChangeScreenEvent>,
                                     IShell
     {
         private readonly IEventAggregator _eventAggregator;
@@ -32,21 +33,22 @@ namespace UI.WpfClient.Modules.Shell
         }
         #region Event Handlers
 
-        public void Handle(LoginAttemptEvent message)
-        {
-            if (message.IsLoginSuccessful)
-            {
-                // Login is successfull, do next steps.
-                //var homeViewModel = new HomeViewModel();
-                var homeViewModel = IoC.Get<IDashBoard>();
-                IoC.BuildUp(homeViewModel);
-                ActiveItem = homeViewModel;
-            }
-        }
-
         public void Handle(VisibilityChangedEvent<IProgressBar> message) => IsAppBusy = message.IsVisible;
 
         public void Handle(VisibilityChangedEvent<IAppBar> message) => IsAppBarVisible = message.IsVisible;
+
+        public void Handle(ChangeScreenEvent message)
+        {
+            if (message.ViewModel != null)
+            {
+                if (!Items.Contains(message.ViewModel))
+                {
+                    IoC.BuildUp(message.ViewModel);
+                    Items.Add(message.ViewModel);
+                }
+                ChangeActiveItem(message.ViewModel, message.ClosePrevious);
+            }
+        }
         #endregion
     }
 }

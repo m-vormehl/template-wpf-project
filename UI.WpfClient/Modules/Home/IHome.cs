@@ -2,7 +2,7 @@
 
 namespace UI.WpfClient.Modules.Home
 {
-    public interface IDashBoard:IScreen
+    public interface IHome:IScreen
     {
     }
 }

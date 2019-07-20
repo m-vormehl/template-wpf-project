@@ -7,11 +7,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using UI.WpfClient.Interfaces;
 using UI.WpfClient.Models.Events;
+using UI.WpfClient.Modules.Search;
 using UI.WpfClient.UserControls;
 
 namespace UI.WpfClient.Modules.Home
 {
-    public class HomeViewModel : Screen, IDashBoard
+    public class HomeViewModel : Screen, IHome
     {
         public DateTime LastUpdateDateTime { get; set; }
         public byte UsersOnline { get; set; }
@@ -28,6 +29,18 @@ namespace UI.WpfClient.Modules.Home
             CheckLastDownloadTime();
             CheckUsersOnline();
         }
+
+        #region COMMANDS
+        public void OpenNewCasesCommand()
+        {
+            _eventAggregator.PublishOnUIThread(new ChangeScreenEvent { ViewModel = IoC.Get<ISearch>(),ClosePrevious=false});
+        }
+
+        public void SearchClickCommand()
+        {
+            _snackbarMessageQueue.Enqueue("Hey, you have just clicked search tile!", false);
+        }
+        #endregion
 
         private void CheckLastDownloadTime()
         {
@@ -54,10 +67,6 @@ namespace UI.WpfClient.Modules.Home
             });
         }
 
-        public void SearchClick()
-        {
-            _snackbarMessageQueue.Enqueue("Hey, you have just clicked search tile!",false);
-        }
         protected override void OnActivate()
         {
             _eventAggregator.PublishOnUIThread(new VisibilityChangedEvent<IAppBar> { IsVisible = true });

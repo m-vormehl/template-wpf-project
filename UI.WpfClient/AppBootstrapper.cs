@@ -6,6 +6,7 @@ namespace UI.WpfClient {
     using UI.WpfClient.Interfaces;
     using UI.WpfClient.Modules.Home;
     using UI.WpfClient.Modules.Login;
+    using UI.WpfClient.Modules.Search;
     using UI.WpfClient.Modules.Shell;
 
     public class AppBootstrapper : BootstrapperBase {
@@ -22,8 +23,8 @@ namespace UI.WpfClient {
             container.Singleton<IEventAggregator, EventAggregator>();
             container.Singleton<IShell,ShellViewModel>();
             container.Singleton<ILogin,LoginViewModel>();
-            container.Singleton<IDashBoard,HomeViewModel>();
-            //container.Singleton<ISnackbarMessageQueue>();
+            container.Singleton<IHome,HomeViewModel>();
+            container.PerRequest<ISearch, SearchViewModel>();
             container.RegisterInstance(typeof(ISnackbarMessageQueue),"Snackbar",new SnackbarMessageQueue(TimeSpan.FromSeconds(4)));
         }
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
